@@ -3,8 +3,9 @@ import Link from 'next/link'
 export default function Home() {
   return (
     <div>
-    <h1> Hi</h1>
+    <h1> Hello</h1>
     <div>This Is My Resume</div>
+    <div>You can contact me at (805) 296 8037 or nmovesen@gmail.com</div>
     <h2>Skills</h2>
     <ol>
       <li><Link href="/skills/certs">Certifications</Link></li>
