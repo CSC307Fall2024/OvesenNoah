@@ -1,6 +1,16 @@
-import Link from 'next/link'
+import Link from 'next/link';
+import type { Job } from '@prisma/client';
+import prisma from '@/db';
 
-export default function Home() {
+export default async function Home() {
+  
+  const jobsList: Job[] = await prisma.job.findMany();
+
+  const jobsItems = jobsList.map(job => (<li key={job.id}><Link href={`/jobs/${job.id}`}>{job.name}</Link></li>));
+
+  jobsItems.sort((a:Job, b:Job) => Date.parse(a.startDate) - Date.parse(b.startDate));
+
+
   return (
     <div>
     <h1> Hello</h1>
@@ -19,9 +29,7 @@ export default function Home() {
     </ol>
     <h2>Jobs</h2>
     <ol>
-      <li><Link href="/jobs/ElRancho">ElRancho</Link></li>
-      <li><Link href="/jobs/Highline">Highline</Link></li>
-      <li><Link href="/jobs/ServiceDesk">ServiceDesk</Link></li>
+      {jobsItems}
     </ol>
     </div>
   );
