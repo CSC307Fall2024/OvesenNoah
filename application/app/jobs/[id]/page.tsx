@@ -16,7 +16,11 @@ export default async function Jobs({params}: { params: { id: string} }) {
     // };
 
     return (<div>
-        <div>The details of this job are as follows: { job?.description } </div>
+        <h1> { job?.name }</h1>
+        <h3> {job?.employer}</h3>
+        <div>{job?.description}</div>
+        <br></br>
+        <a href="/">Go Back</a>
         </div>
     );
 }

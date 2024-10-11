@@ -9,6 +9,10 @@ export default function Projects({params}: { params: { id: string} }) {
     return (<div>
         <h1>{params.id}</h1>
         <div>{ projectsList[params.id] } </div>
+        <br></br>
+        <a href="/">Go Back</a>
         </div>
     );
+
+  
 }
